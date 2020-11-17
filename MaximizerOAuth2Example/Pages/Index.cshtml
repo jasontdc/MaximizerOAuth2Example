@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a asp-page="/Login" class="btn btn-primary" role="button">Log in with Maximizer</a>
+    }
+    else
+    {
+        <p><strong>Access Token:</strong> @Model.AccessToken</p>
+        <a asp-page="/Logout" class="btn btn-default" role="button">Log out</a>
+    }
+</div>
